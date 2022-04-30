@@ -202,6 +202,10 @@ export class RegionNetworkEndpointGroup extends pulumi.CustomResource {
      */
     public readonly cloudRun!: pulumi.Output<outputs.compute.RegionNetworkEndpointGroupCloudRun | undefined>;
     /**
+     * Creation timestamp in RFC3339 text format.
+     */
+    public /*out*/ readonly creationTimestamp!: pulumi.Output<string>;
+    /**
      * An optional description of this resource. Provide this property when
      * you create the resource.
      */
@@ -257,6 +261,7 @@ export class RegionNetworkEndpointGroup extends pulumi.CustomResource {
             resourceInputs["appEngine"] = state ? state.appEngine : undefined;
             resourceInputs["cloudFunction"] = state ? state.cloudFunction : undefined;
             resourceInputs["cloudRun"] = state ? state.cloudRun : undefined;
+            resourceInputs["creationTimestamp"] = state ? state.creationTimestamp : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkEndpointType"] = state ? state.networkEndpointType : undefined;
@@ -278,6 +283,7 @@ export class RegionNetworkEndpointGroup extends pulumi.CustomResource {
             resourceInputs["project"] = args ? args.project : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serverlessDeployment"] = args ? args.serverlessDeployment : undefined;
+            resourceInputs["creationTimestamp"] = undefined /*out*/;
             resourceInputs["selfLink"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -307,6 +313,10 @@ export interface RegionNetworkEndpointGroupState {
      * Structure is documented below.
      */
     cloudRun?: pulumi.Input<inputs.compute.RegionNetworkEndpointGroupCloudRun>;
+    /**
+     * Creation timestamp in RFC3339 text format.
+     */
+    creationTimestamp?: pulumi.Input<string>;
     /**
      * An optional description of this resource. Provide this property when
      * you create the resource.
